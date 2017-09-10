@@ -10,6 +10,8 @@ StandardInput=tty
 TTYPath=/dev/tty2
 TTYReset=yes
 TTYVHangup=yes
+Restart=always
+EnvironmentFile=-/etc/default/locale
 
 [Install]
 Alias=display-manager.service

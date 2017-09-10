@@ -5,8 +5,8 @@ build/ly :
 install : build/ly
 	install -d ${DESTDIR}/etc/ly
 	install -D build/ly -t ${DESTDIR}/usr/bin
-	install -D ly.service -t ${DESTDIR}/usr/lib/systemd/system
-	ln -sf /usr/lib/security/pam_loginuid.so ${DESTDIR}/usr/lib/pam_loginuid.so
+	install -D ly.service -t ${DESTDIR}/lib/systemd/system
+	ln -sf /lib/x86_64-linux-gnu/security/pam_loginuid.so ${DESTDIR}/lib/x86_64-linux-gnu/pam_loginuid.so
 	
 all : build/ly
 
