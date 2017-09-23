@@ -3,13 +3,15 @@
 ![ly screenshot](https://cloud.githubusercontent.com/assets/5473047/26368771/ef4aa91a-3ff2-11e7-8f3e-1b3e3ea67e49.png "ly on st")
 
 ### Ly debian fork
-Thanks for cylgom's work! To make ly work for debian, I did some small changed to the code:   
+Thanks for cylgom's work! To make ly work for debian, I did some small changes to the code:   
 1. make `launch_xorg` always using `xinit` to start the x session   
 Because lots of work have been done by debian to fit the daily use of 
 regular xsessions, such as gnome, i3wm, awesome, kde. Start xsessions using xinit will call all these scripts in /etc/X11/Xsession.d/. We have
 no necessity to do it by hands. 
-2. create a mkdeb.sh to compile and package a deb for use.
+2. create a mkdeb.sh to compile and package a deb for us.
 3. some lib path fix for debian
+
+---
 
 This is a lightweight login/display manager for linux made with ncurses.
 It is based on linux-pam and systemd and was developped in good old C99.
