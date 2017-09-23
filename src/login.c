@@ -361,7 +361,7 @@ const char* de_command, enum deserv_t display_server)
 				break;
 
 			case xorg:
-				launch_xorg(pwd, login_handle, de_command, display_name, vt, 0);
+				launch_xorg(pwd, login_handle, de_command, display_name, vt, 1);
 				break;
 
 			case xinitrc:
