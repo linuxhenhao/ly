@@ -29,6 +29,7 @@
 #define LY_CMD_XINITRC "~/.xinitrc"
 #define LY_CMD_MCOOKIE "/usr/bin/mcookie"
 #define LY_XAUTHORITY ".lyxauth"
+#define LY_CMD_XENV_PREPARE "/bin/sh /etc/X11/Xsession"
 
 /* paths */
 #define LY_PATH "/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/env"

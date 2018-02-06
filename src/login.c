@@ -490,6 +490,7 @@ int xinitrc)
 		"exec xinit %s%s -- %s %s %s -auth %s", xinitrc ? "" : "/usr/bin/",
 		de_command, LY_CMD_X,
 		display_name, vt, getenv("XAUTHORITY"));
+		system(LY_CMD_XENV_PREPARE);
 		execl(pwd->pw_shell, pwd->pw_shell, "-c", cmd, NULL);
 		exit(0);
 	}
