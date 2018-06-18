@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION=0.1.0
+VERSION=0.1.5
 LY_DIR=./ly
 
 function GetArch()

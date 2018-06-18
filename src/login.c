@@ -463,8 +463,6 @@ int xinitrc)
 	pid_t child;
 	int status;
 	char cmd[LY_LIM_CMD];
-	char* argv[] = {pwd->pw_shell, "-l", "-c", cmd, NULL};
-	extern char** environ;
 	/* updates cookie */
 	snprintf(cmd, sizeof(cmd), "exec xauth add %s . `%s`", display_name,
 	LY_CMD_MCOOKIE);
@@ -489,7 +487,7 @@ int xinitrc)
 		reset_terminal(pwd);
 		/* starts session */
 		snprintf(cmd, sizeof(cmd),
-		"exec xinit %s %s -- %s %s %s -auth %s", xinitrc ? LY_XINITRC_PATH : "/usr/bin/",
+		"exec xinit %s %s -- %s %s %s -auth %s", xinitrc ? LY_CMD_XSETUP: "/usr/bin/",
 		de_command, LY_CMD_X,
 		display_name, vt, getenv("XAUTHORITY"));
 		execl(pwd->pw_shell, pwd->pw_shell, "-c", cmd, NULL);

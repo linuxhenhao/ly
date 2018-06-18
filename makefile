@@ -4,6 +4,7 @@ build/ly :
 	
 install : build/ly
 	install -d ${DESTDIR}/etc/ly
+	install -D xsetup.sh -t ${DESTDIR}/etc/ly
 	install -D build/ly -t ${DESTDIR}/usr/bin
 	install -D ly.service -t ${DESTDIR}/lib/systemd/system
 	mkdir -p ${DESTDIR}/lib/x86_64-linux-gnu/
