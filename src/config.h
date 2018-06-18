@@ -23,16 +23,16 @@
 #define LY_CFG_FMAX 100
 
 /* commands */
+#define LY_XINITRC_PATH "/etc/X11/xinit/xinitrc"
 #define LY_CMD_X "/usr/bin/X"
 #define LY_CMD_TPUT "/usr/bin/tput"
 #define LY_CMD_HALT "/sbin/shutdown"
 #define LY_CMD_XINITRC "~/.xinitrc"
 #define LY_CMD_MCOOKIE "/usr/bin/mcookie"
 #define LY_XAUTHORITY ".lyxauth"
-#define LY_CMD_XENV_PREPARE "/bin/sh /etc/X11/Xsession"
 
 /* paths */
-#define LY_PATH "/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/env"
+#define LY_PATH "/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin/:/bin:/sbin"
 #define LY_PATH_XSESSIONS "/usr/share/xsessions"
 
 /* console */
