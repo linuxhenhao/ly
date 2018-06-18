@@ -23,6 +23,8 @@ Ly tries not to reinvent the wheel and uses linux-utils and xorg-xinit
 instead of providing heavy, incomplete and outdated implementations.
 Make sure all the following tools and libraries are available on your
 distribution before going further:
+- make
+- a c99 compiler
 - systemd
 - linux-pam
 - ncurses
@@ -54,6 +56,14 @@ If you need to switch between ttys after Ly's start you also have to
 disable getty on Ly's tty to prevent "login" from spawning on top of it:
 ```
 sudo systemctl disable getty@tty2.service
+```
+If messages from other services pops-up over the login prompt, you have to edit the service in order to run it last. In order to do this, simply edit the following file:
+```
+/usr/lib/systemd/system/ly.service
+```
+Just under the "After getty", add another one with your last-launching service. Example on my computer:
+```
+After=tlp.service
 ```
 
 ### Controls

@@ -9,7 +9,6 @@
 #include <sys/ioctl.h>
 #include <linux/vt.h>
 #include <unistd.h>
-#include <signal.h>
 /* ncurses */
 #include <form.h>
 /* pam */
@@ -22,6 +21,7 @@
 #include "desktop.h"
 #include "ncui.h"
 
+#define KEY_TAB_ASCII 8
 #define KEY_ENTER_ASCII 10
 #define KEY_BACKSPACE_ASCII 127
 
@@ -46,9 +46,6 @@ int main(void)
 	char* username;
 	char* password;
 	char* cmd;
-	/* prevents CTRL+C from killing the process */
-	signal(SIGINT, SIG_IGN);
-	signal(SIGHUP, SIG_IGN);
 	/* gets desktop entries */
 	de_list = list_de();
 	de_props = de_list->props;
@@ -139,11 +136,13 @@ int main(void)
 					break;
 				}
 
+			case KEY_TAB_ASCII:
 			case KEY_DOWN:
 				form_driver(form.form, REQ_NEXT_FIELD);
 				form_driver(form.form, REQ_END_LINE);
 				break;
 
+			case KEY_BTAB:
 			case KEY_UP:
 				form_driver(form.form, REQ_PREV_FIELD);
 				form_driver(form.form, REQ_END_LINE);

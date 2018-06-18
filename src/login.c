@@ -463,6 +463,8 @@ int xinitrc)
 	pid_t child;
 	int status;
 	char cmd[LY_LIM_CMD];
+	char* argv[] = {pwd->pw_shell, "-l", "-c", cmd, NULL};
+	extern char** environ;
 	/* updates cookie */
 	snprintf(cmd, sizeof(cmd), "exec xauth add %s . `%s`", display_name,
 	LY_CMD_MCOOKIE);
@@ -568,7 +570,7 @@ int init_env(pam_handle_t* pam_handle, struct passwd* pw)
 	setenv("USER", pw->pw_name, 1);
 	setenv("SHELL", pw->pw_shell, 1);
 	setenv("LOGNAME", pw->pw_name, 1);
-	snprintf(tmp, sizeof(tmp), "/home/%s/%s", pw->pw_name, LY_XAUTHORITY);
+	snprintf(tmp, sizeof(tmp), "%s/%s", pw->pw_dir, LY_XAUTHORITY);
 	setenv("XAUTHORITY", tmp, 0);
 	buf = termenv ? strdup(termenv) : NULL;
 	setenv("TERM", buf ? buf : "linux", 1);
